@@ -2,7 +2,8 @@ import { Link, useLocation } from 'react-router-dom';
 
 const Card = ({ product, handleRemove }) => {
     const { pathname } = useLocation();
-    const { product_title, product_image, id, price } = product || {};
+    const { product_title, product_image, product_id, price } = product || {};
+    console.log("Product:", product_id)
 
     return (
         <div className="card bg-base-100 w-96 shadow-xl border mx-auto">
@@ -16,9 +17,13 @@ const Card = ({ product, handleRemove }) => {
             <div className="card-body">
                 <h1 className="text-4xl">{product_title}</h1>
                 <p>Price: {price}k</p>
-                <Link to={`/product/${id}`} className=''>
-                    <button className='btn outline outline-[#9538E2] px-3 hover:bg-[#9538E2] hover:text-white rounded-full mt-4'>View Details</button>
+
+                <Link to={`/product/${product_id}`}>
+                    <button className='btn outline outline-[#9538E2] px-3 hover:bg-[#9538E2] hover:text-white rounded-full mt-4'>
+                        View Details
+                    </button>
                 </Link>
+
             </div>
             {pathname === '/dashboard' && (
                 <div
