@@ -6,7 +6,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className={`m-7 rounded-xl text-white ${isDashboardOrStatistics ? 'bg-white text-black' : 'bg-[#9538E2]'}`}>
+            <div className={`my-7 mx-16 rounded-xl text-white ${isDashboardOrStatistics ? 'bg-white text-black' : 'bg-[#9538E2]'}`}>
                 <div className="navbar px-32 py-7">
                     <div className="navbar-start">
                         <div className='dropdown'>
@@ -44,7 +44,7 @@ const Navbar = () => {
                                     }
                                     to='/coffees'
                                 >
-                                    Coffees
+                                    Statistics
                                 </NavLink>
                                 <NavLink
                                     className={({ isActive }) =>
@@ -56,7 +56,7 @@ const Navbar = () => {
                                 </NavLink>
                             </ul>
                         </div>
-                        <a className="btn btn-ghost text-xl">Gadget Hell</a>
+                        <a className="btn btn-ghost text-xl text-black font-bold">Gadget Hell</a>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1 gap-5">
@@ -96,15 +96,9 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end gap-4">
-                        <button className="btn btn-circle hidden lg:block pl-3 drop-shadow-2xl rounded-full border">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </button>
+
                         <div tabIndex="0" role="button"
-                            className="btn btn-circle hidden lg:block pt-2.5 drop-shadow-2xl rounded-full border">
+                            className="btn btn-circle hidden lg:block pt-3 drop-shadow-2xl rounded-full border">
                             <div className="indicator">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor">
@@ -113,6 +107,9 @@ const Navbar = () => {
                                 </svg>
                             </div>
                         </div>
+                        <button className="btn btn-circle hidden lg:block pl-3 drop-shadow-2xl rounded-full border">
+                            <img width="24" height="24" src="https://img.icons8.com/ios/50/like--v1.png" alt="like--v1" />
+                        </button>
                     </div>
                 </div>
             </div>

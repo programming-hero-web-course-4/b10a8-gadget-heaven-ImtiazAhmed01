@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 const Card = ({ product, handleRemove }) => {
     const { pathname } = useLocation();
     const { product_title, product_image, product_id, price } = product || {};
-    console.log("Product:", product_id)
+    // console.log("Product:", product_id)
 
     return (
         <div className="card bg-base-100 w-96 shadow-xl border mx-auto">
