@@ -12,6 +12,10 @@ import ProductCard from './Components/ProductCard/ProductCard';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Statistics from './Components/Statistics/Statistics';
 import Details from './Components/Details/Details';
+import Cart from './Components/Cart/Cart';
+import Wishlist from './Components/Wishlist/Wishlist';
+
+
 
 // const router = createBrowserRouter([
 //   {
@@ -95,39 +99,51 @@ import Details from './Components/Details/Details';
 //   }
 // ]);
 const router = createBrowserRouter([
+
+
+
   {
     path: "/",
     element: <App />,
-    loader: () => fetch('../Category.json'), // You can use this if needed
+    loader: () => fetch('../Category.json'),
     children: [
       {
         path: "/",
-        element: <ProductCard />, // Assuming ProductCard is the main product listing page
-        loader: () => fetch('../public/Gadget.json'), // Load products from the JSON file
-      },
-      {
-        path: "/category/:category", // Optional category page route
         element: <ProductCard />,
         loader: () => fetch('../public/Gadget.json'),
       },
       {
-        path: "/product/:productId", // Route for product details
+        path: "/category/:category",
+        element: <ProductCard />,
+        loader: () => fetch('../public/Gadget.json'),
+      },
+      {
+        path: "/product/:productId",
         element: <Details />,
-        loader: async ({ params }) => {
-          const response = await fetch('/Gadget.json');
-          const products = await response.json();
-          const product = products.find(item => item.product_id === params.productId); // Find product by ID
-          return product || null; // Return product data
-        },
+        loader: () => fetch('../public/Gadget.json')
+
       }
     ]
   },
   {
-    path: "/dashboard", // Route for the Dashboard page
+    path: "/dashboard",
     element: <Dashboard />,
+    children: [
+      {
+        path: '/dashboard/cart',
+        element: <Cart />,
+        loader: () => fetch('../public/Gadget.json')
+      },
+
+      {
+        path: '/dashboard/wishlist',
+        element: <Wishlist></Wishlist>
+      }
+    ]
   },
+
   {
-    path: "/statistics", // Route for the Statistics page
+    path: "/statistics",
     element: <Statistics />,
   }
 ]);
