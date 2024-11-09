@@ -55,7 +55,7 @@ const Wishlist = () => {
                             <div className='mt-5'>
                                 <p className='font-bold'>{product.product_title}</p>
                                 <p className='py-2'><span className='font-bold'>Description: </span>{product.description}</p>
-                                <p>{product.price} tk</p>
+                                <p>{product.price}$</p>
                             </div>
                         </div>
                         <button className='mt-4 mr-5' onClick={() => removeFromWishList(product.product_id)}>
