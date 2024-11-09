@@ -9,7 +9,7 @@ const Wishlist = () => {
         console.log("Stored wishlist products:", storedProductWishList, typeof storedProductWishList);
 
         if (storedProductWishList && Array.isArray(storedProductWishList)) {
-            // Filter out duplicates based on `product_id`
+
             const uniqueProducts = storedProductWishList.reduce((acc, current) => {
                 if (!acc.some(item => item.product_id === current.product_id)) {
                     acc.push(current);
@@ -21,9 +21,18 @@ const Wishlist = () => {
     }, []);
 
     const sortByPrice = () => {
-        // Sorting wishList items in descending order of price
+
         const sortedItems = [...wishList].sort((a, b) => Number(b.price) - Number(a.price));
         setWishList(sortedItems);
+    };
+    const removeFromWishList = (productId) => {
+
+        const updatedWishList = wishList.filter(item => item.product_id !== productId);
+
+        setWishList(updatedWishList);
+
+
+        localStorage.setItem('wish-list', JSON.stringify(updatedWishList));
     };
 
     return (
@@ -49,6 +58,9 @@ const Wishlist = () => {
                                 <p>{product.price} tk</p>
                             </div>
                         </div>
+                        <button className='mt-4 mr-5' onClick={() => removeFromWishList(product.product_id)}>
+                            <img className='text-red-700' width="25" height="25" src="https://img.icons8.com/ios/50/cancel.png" alt="cancel" />
+                        </button>
                     </div>
                 ))
             ) : (

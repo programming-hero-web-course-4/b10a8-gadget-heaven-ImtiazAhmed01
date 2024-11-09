@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from 'react-router-dom';
+import { useState } from 'react';
 import Banner from '../Banner/Banner';
 import { addToStoredProductList } from '../../Utility';
 import { addToStoredProductWishList } from '../../utilityW';
@@ -8,6 +9,8 @@ const Details = () => {
     const data = useLoaderData();
     const id = productId;
 
+    // Track if the product is added to the wishlist
+    const [isWishlistAdded, setIsWishlistAdded] = useState(false);
 
     const product = data ? data.find(item => item.product_id === id) : null;
 
@@ -18,11 +21,13 @@ const Details = () => {
     const { product_image, product_title, price, description, specification } = product;
 
     const addToCart = (product) => {
-        console.log(product)
+        console.log(product);
         addToStoredProductList(product);
     };
+
     const addToWishlist = (product) => {
         addToStoredProductWishList(product);
+        setIsWishlistAdded(true); // Disable the button after adding to wishlist
     };
 
     return (
@@ -54,7 +59,13 @@ const Details = () => {
 
                     <div className="card-actions justify-start mt-4 gap-5">
                         <button className='btn rounded-full bg-[#9538E2]' onClick={() => addToCart(product)}>Add To Cart</button>
-                        <button className='btn rounded-full border' onClick={() => addToWishlist(product)}>Add To Wishlist</button>
+                        <button
+                            className='btn rounded-full border'
+                            onClick={() => addToWishlist(product)}
+                            disabled={isWishlistAdded} // Disable the button after clicking
+                        >
+                            {isWishlistAdded ? 'Added to Wishlist' : 'Add To Wishlist'}
+                        </button>
                     </div>
                 </div>
             </div>

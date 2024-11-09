@@ -5,8 +5,7 @@ import BannerStyle from "./Components/BannerStyle/BannerStyle";
 import Category from "./Components/Category/Category";
 import Footer from "./Components/Footer/Footer";
 import Navbar from "./Components/Navbar/Navbar";
-import { useState } from 'react';
-import Dashboard from './Components/Dashboard/Dashboard';
+
 
 const App = () => {
     const categories = useLoaderData();

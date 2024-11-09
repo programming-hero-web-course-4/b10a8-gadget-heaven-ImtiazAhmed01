@@ -1,26 +1,22 @@
 const getStoredProductWishList = () => {
-    const storedListWishListStr = localStorage.getItem('add-list');
+    const storedListWishListStr = localStorage.getItem('wish-list');
     if (storedListWishListStr) {
-        const storedWishList = JSON.parse(storedListWishListStr)
-        return storedWishList
-    }
-    else {
+        const storedWishList = JSON.parse(storedListWishListStr);
+        return storedWishList;
+    } else {
         return [];
     }
-}
+};
 
 const addToStoredProductWishList = (id) => {
     const storedWishList = getStoredProductWishList();
     if (storedWishList.includes(id)) {
-        console.log(id, 'already')
-    }
-    else {
+        console.log(id, 'already in wishlist');
+    } else {
         storedWishList.push(id);
         const storedWishListStr = JSON.stringify(storedWishList);
-        localStorage.setItem('add-list', storedWishListStr)
+        localStorage.setItem('wish-list', storedWishListStr);
     }
-}
-export {
-    addToStoredProductWishList, getStoredProductWishList
+};
 
-}
+export { addToStoredProductWishList, getStoredProductWishList };

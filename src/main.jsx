@@ -14,6 +14,8 @@ import Statistics from './Components/Statistics/Statistics';
 import Details from './Components/Details/Details';
 import Cart from './Components/Cart/Cart';
 import Wishlist from './Components/Wishlist/Wishlist';
+import ErrorPage from './Components/ErrorPage/ErrorPage';
+import SignUp from './Components/Sign Up/SignUp';
 
 
 
@@ -105,6 +107,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage></ErrorPage>,
     loader: () => fetch('../Category.json'),
     children: [
       {
@@ -145,6 +148,10 @@ const router = createBrowserRouter([
   {
     path: "/statistics",
     element: <Statistics />,
+  },
+  {
+    path: '/signUp',
+    element: <SignUp></SignUp>
   }
 ]);
 
