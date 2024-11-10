@@ -107,23 +107,23 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    // errorElement: <ErrorPage></ErrorPage>,
-    loader: () => fetch('../Category.json'),
+    errorElement: <ErrorPage></ErrorPage>,
+    loader: () => fetch('/Category.json'),
     children: [
       {
         path: "/",
         element: <ProductCard />,
-        loader: () => fetch('../public/Gadget.json'),
+        loader: () => fetch('/Gadget.json'),
       },
       {
         path: "/category/:category",
         element: <ProductCard />,
-        loader: () => fetch('../public/Gadget.json'),
+        loader: () => fetch('/Gadget.json'),
       },
       {
         path: "/product/:productId",
         element: <Details />,
-        loader: () => fetch('../public/Gadget.json')
+        loader: () => fetch('/Gadget.json')
 
       }
     ]
@@ -135,7 +135,7 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/cart',
         element: <Cart />,
-        loader: () => fetch('../public/Gadget.json')
+        loader: () => fetch('/Gadget.json')
       },
 
       {

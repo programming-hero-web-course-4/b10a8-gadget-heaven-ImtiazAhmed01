@@ -5,9 +5,15 @@ import BannerStyle from "./Components/BannerStyle/BannerStyle";
 import Category from "./Components/Category/Category";
 import Footer from "./Components/Footer/Footer";
 import Navbar from "./Components/Navbar/Navbar";
+import { useEffect } from 'react';
+
 
 
 const App = () => {
+    useEffect(() => {
+        document.title = "Gadget Hell"
+    })
+
     const categories = useLoaderData();
     const location = useLocation();
     // const [cartItems, setCartItems] = useState([]);

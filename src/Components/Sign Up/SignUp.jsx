@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 
 const SignUp = () => {
+    useEffect(() => {
+        document.title = "Sign Up | Gadget Hell"
+    })
     return (
         <div>
             <Navbar></Navbar>
@@ -64,7 +68,7 @@ const SignUp = () => {
                     <a className="btn bg-gradient-to-r from-[#9538E2]/30 to-[#9538E2]/80 font-bold mt-5 ml-3"><NavLink to='/'> Sign Up</NavLink></a>
                 </div>
             </form>
-            footer
+            <Footer></Footer>
         </div>
     );
 };

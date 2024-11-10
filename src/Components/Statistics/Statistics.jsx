@@ -1,9 +1,13 @@
+import { useEffect } from "react";
 import Banner from "../Banner/Banner";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 
 
 const Statistics = () => {
+    useEffect(() => {
+        document.title = "Statistics | Gadget Hell"
+    })
     return (
         <div>
             <Navbar></Navbar>

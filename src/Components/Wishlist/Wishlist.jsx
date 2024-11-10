@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getStoredProductWishList } from '../../utilityW';
+import { getStoredProductWishList } from '../../utilityW.js';
 
 const Wishlist = () => {
     const [wishList, setWishList] = useState([]);

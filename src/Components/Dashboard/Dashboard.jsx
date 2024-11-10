@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Banner from '../Banner/Banner';
 import Footer from '../Footer/Footer';
 import Cart from '../Cart/Cart';
 import Wishlist from '../Wishlist/Wishlist';
 
-import { useNavigate } from 'react-router-dom'; // If needed to navigate after actions
+
 import Details from '../Details/Details';
 
 const Dashboard = () => {
+    useEffect(() => {
+        document.title = "Dashboard | Gadget Hell"
+    })
     const [cartItems, setCartItems] = useState([]);
     const [wishlistItems, setWishlistItems] = useState([]);
     const [isActive, setIsActive] = useState({ available: true, status: "active" });

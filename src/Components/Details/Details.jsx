@@ -2,7 +2,7 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import Banner from '../Banner/Banner';
 import { addToStoredProductList } from '../../Utility';
-import { addToStoredProductWishList } from '../../utilityW';
+import { addToStoredProductWishList } from '../../utilityW.js';
 import { toast, ToastContainer, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -21,7 +21,7 @@ const Details = () => {
         return <div></div>;
     }
 
-    const { product_image, product_title, price, description, specification } = product;
+    const { product_image, product_title, price, description, specification, rating } = product;
 
     const addToCart = (product) => {
         if (isCartAdded) {
@@ -123,6 +123,16 @@ const Details = () => {
                             ))}
                         </ul>
                     )}
+                    <p className='font-bold'>Ratings:</p>
+                    <div className="rating">
+                        <input type="radio" name="rating-2" className="mask mask-star-2 border bg-yellow-400" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 border bg-yellow-400"
+                        />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 border bg-yellow-400" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 border bg-yellow-400" defaultChecked />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 border bg-yellow-400" />
+                        <p className='rounded-full bg-gray-300 size-7 pl-4 mr-44'>{rating}</p>
+                    </div>
 
                     <div className="card-actions justify-start mt-4 gap-5">
                         <button className='btn rounded-full bg-[#9538E2]' onClick={() => addToCart(product)}>Add To Cart</button>
